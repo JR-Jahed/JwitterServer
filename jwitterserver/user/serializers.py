@@ -7,6 +7,7 @@ class UserSerializer(ModelSerializer):
 
         fields = [
             'name',
+            'email',
             'password',
             'address'
         ]
