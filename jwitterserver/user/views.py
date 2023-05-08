@@ -20,6 +20,17 @@ def create_user(request):
     return Response(serializer.data)
 
 
+@api_view(['POST'])
+def login(request):
+    data = request.data
+
+    user = User.objects.get(email__exact=data['email'])
+
+    serializer = UserSerializer(user, many=False)
+
+    return Response(serializer.data)
+
+
 @api_view(['GET'])
 def get_users(request):
     users = User.objects.all()
